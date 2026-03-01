@@ -4,7 +4,7 @@ A single-page, responsive dashboard built from an Adobe XD design. The UI is pop
 
 ## Preview
 
-![Dashboard Screenshot](assets/screenshots/dashboard.png)
+![Dashboard Screenshot](assets/screenshots/dashnoard.png)
 
 ## Features
 
