@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tech.Care | Patients</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- Top Header -->
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand__logoImg" src="assets/img/TestLogo.png" alt="Tech.Care" />
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__item" href="#">
+          <img class="nav__iconImg" src="assets/img/home_FILL0_wght300_GRAD0_opsz24.svg" alt="" aria-hidden="true" />
+          <span class="nav__text">Overview</span>
+        </a>
+
+        <a class="nav__item nav__item--active" href="#" aria-current="page">
+          <img class="nav__iconImg" src="assets/img/group_FILL0_wght300_GRAD0_opsz24.svg" alt="" aria-hidden="true" />
+          <span class="nav__text">Patients</span>
+        </a>
+
+        <a class="nav__item" href="#">
+          <img class="nav__iconImg" src="assets/img/calendar_today_FILL0_wght300_GRAD0_opsz24.svg" alt=""
+            aria-hidden="true" />
+          <span class="nav__text">Schedule</span>
+        </a>
+
+        <a class="nav__item" href="#">
+          <img class="nav__iconImg" src="assets/img/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg" alt=""
+            aria-hidden="true" />
+          <span class="nav__text">Message</span>
+        </a>
+
+        <a class="nav__item" href="#">
+          <img class="nav__iconImg" src="assets/img/credit_card_FILL0_wght300_GRAD0_opsz24.svg" alt=""
+            aria-hidden="true" />
+          <span class="nav__text">Transactions</span>
+        </a>
+      </nav>
+
+      <!-- Right Side: User + Icons -->
+      <div class="topbar__right">
+        <div class="user">
+          <img class="user__avatar"
+            src="assets/img/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png"
+            alt="Dr. Jose Simmons" />
+          <div class="user__meta">
+            <div class="user__name">Dr. Jose Simmons</div>
+            <div class="user__role">General Practitioner</div>
+          </div>
+        </div>
+
+        <button class="topbar__iconBtn" type="button" aria-label="Settings">
+          <img class="topbar__iconImg" src="assets/img/settings_FILL0_wght300_GRAD0_opsz24.svg" alt=""
+            aria-hidden="true" />
+        </button>
+
+        <button class="topbar__iconBtn topbar__iconBtn--more" type="button" aria-label="More options">
+          <img class="topbar__moreImg" src="assets/img/more_vert_FILL0_wght300_GRAD0_opsz24.svg" alt=""
+            aria-hidden="true" />
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="layout">
+
+      <!-- LEFT: Patients -->
+      <aside class="panel panel--patients" aria-label="Patients list">
+        <div class="panel__header">
+          <h2 class="panel__title">Patients</h2>
+
+          <button class="icon-btn" type="button" aria-label="Search patients">
+            <img class="iconImg" src="assets/img/search_FILL0_wght300_GRAD0_opsz24.svg" alt="" aria-hidden="true" />
+          </button>
+        </div>
+
+        <div class="patients" id="patientsList">
+          <!-- JS will inject Jessica only -->
+        </div>
+      </aside>
+
+      <!-- CENTER -->
+      <section class="center">
+
+        <!-- Diagnosis History -->
+        <section class="card" aria-label="Diagnosis history">
+          <div class="card__header">
+            <h2 class="card__title">Diagnosis History</h2>
+          </div>
+
+          <div class="history">
+
+            <!-- Chart Area -->
+            <div class="history__chart card card--soft">
+              <div class="history__chartTop">
+                <div class="history__chartTitle">Blood Pressure</div>
+
+                <div class="history__chartFilter">
+                  <span class="muted">Last 6 months</span>
+
+                  <button class="icon-btn icon-btn--sm" type="button" aria-label="Change range">
+                    <img class="iconImg iconImg--sm" src="assets/img/expand_more_FILL0_wght300_GRAD0_opsz24.svg" alt=""
+                      aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="history__chartBody">
+                <div class="chartCanvasWrap">
+                  <canvas id="bpChart" aria-label="Blood pressure chart" role="img"></canvas>
+                </div>
+
+                <div class="bpStats">
+
+                  <!-- Systolic -->
+                  <div class="bpGroup">
+                    <div class="bpStat__label">
+                      <span class="dot dot--pink" aria-hidden="true"></span>
+                      Systolic
+                    </div>
+
+                    <div class="bpStat__value" id="bpSystolicValue">--</div>
+
+                    <div class="bpTrend">
+                      <img id="bpSystolicArrow" class="bpTrend__icon" src="assets/img/ArrowUp.svg" alt=""
+                        aria-hidden="true" />
+                      <span id="bpSystolicLevel">--</span>
+                    </div>
+                  </div>
+
+                  <div class="bpDivider" aria-hidden="true"></div>
+
+                  <!-- Diastolic -->
+                  <div class="bpGroup">
+                    <div class="bpStat__label">
+                      <span class="dot dot--purple" aria-hidden="true"></span>
+                      Diastolic
+                    </div>
+
+                    <div class="bpStat__value" id="bpDiastolicValue">--</div>
+
+                    <div class="bpTrend">
+                      <img id="bpDiastolicArrow" class="bpTrend__icon" src="assets/img/ArrowDown.svg" alt=""
+                        aria-hidden="true" />
+                      <span id="bpDiastolicLevel">--</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Vitals -->
+            <div class="vitals">
+              <div class="vital vital--blue">
+                <div class="vital__icon">
+                  <img class="vital__iconImg" src="assets/img/respiratory rate.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="vital__name">Respiratory Rate</div>
+                <div class="vital__value"><span id="respValue">--</span> bpm</div>
+                <div class="vital__status muted" id="respLevel">--</div>
+              </div>
+
+              <div class="vital vital--pink">
+                <div class="vital__icon">
+                  <img class="vital__iconImg" src="assets/img/temperature.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="vital__name">Temperature</div>
+                <div class="vital__value"><span id="tempValue">--</span>°F</div>
+                <div class="vital__status muted" id="tempLevel">--</div>
+              </div>
+
+              <div class="vital vital--peach">
+                <div class="vital__icon">
+                  <img class="vital__iconImg" src="assets/img/HeartBPM.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="vital__name">Heart Rate</div>
+                <div class="vital__value"><span id="hrValue">--</span> bpm</div>
+                <div class="vital__statusRow">
+  <img id="hrArrow" class="vital__arrow" src="assets/img/ArrowDown.svg" alt="" aria-hidden="true" />
+  <span class="vital__status muted" id="hrLevel">--</span>
+</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Diagnostic List -->
+        <section class="card" aria-label="Diagnostic list">
+          <div class="card__header">
+            <h2 class="card__title">Diagnostic List</h2>
+          </div>
+
+          <div class="tableWrap">
+            <table class="table" aria-label="Diagnostic list table">
+              <thead>
+                <tr>
+                  <th>Problem/Diagnosis</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="diagnosticTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- RIGHT -->
+      <aside class="right">
+
+        <!-- Profile -->
+        <section class="card card--profile" aria-label="Patient profile">
+          <div class="profile">
+            <img class="profile__photo" src="assets/img/Layer 2.png" alt="Patient profile photo" id="profilePhoto" />
+            <h2 class="profile__name" id="profileName">--</h2>
+
+            <div class="profile__info">
+
+              <div class="infoRow">
+                <div class="infoRow__icon">
+                  <img src="assets/img/BirthIcon.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="infoRow__text">
+                  <div class="infoRow__label">Date of Birth</div>
+                  <div class="infoRow__value" id="dob">--</div>
+                </div>
+              </div>
+
+              <div class="infoRow">
+                <div class="infoRow__icon">
+                  <img src="assets/img/FemaleIcon.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="infoRow__text">
+                  <div class="infoRow__label">Gender</div>
+                  <div class="infoRow__value" id="gender">--</div>
+                </div>
+              </div>
+
+              <div class="infoRow">
+                <div class="infoRow__icon">
+                  <img src="assets/img/PhoneIcon.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="infoRow__text">
+                  <div class="infoRow__label">Contact Info.</div>
+                  <div class="infoRow__value" id="phone">--</div>
+                </div>
+              </div>
+
+              <div class="infoRow">
+                <div class="infoRow__icon">
+                  <img src="assets/img/PhoneIcon.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="infoRow__text">
+                  <div class="infoRow__label">Emergency Contacts</div>
+                  <div class="infoRow__value" id="emergency">--</div>
+                </div>
+              </div>
+
+              <div class="infoRow">
+                <div class="infoRow__icon">
+                  <img src="assets/img/InsuranceIcon.svg" alt="" aria-hidden="true" />
+                </div>
+                <div class="infoRow__text">
+                  <div class="infoRow__label">Insurance Provider</div>
+                  <div class="infoRow__value" id="insurance">--</div>
+                </div>
+              </div>
+
+            </div>
+            <button class="btn btn--primary" type="button">Show All Information</button>
+          </div>
+        </section>
+
+        <!-- Lab Results -->
+        <section class="card" aria-label="Lab results">
+          <div class="card__header">
+            <h2 class="card__title">Lab Results</h2>
+          </div>
+
+          <ul class="labs" img="assets/img/download.svg" id="labsList">
+            <!-- JS will inject lab results -->
+          </ul>
+        </section>
+
+      </aside>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
